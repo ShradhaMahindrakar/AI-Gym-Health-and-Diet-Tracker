@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Gym Tracker – Your AI-Powered Fitness & Diet Coach</title>
+    <meta name="description" content="Generate personalised workout plans and diet plans powered by AI. Track your fitness progress with AI Gym Tracker." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              gym: {
+                50:  '#f0fdf4',
+                100: '#dcfce7',
+                400: '#4ade80',
+                500: '#22c55e',
+                600: '#16a34a',
+                700: '#15803d',
+                800: '#166534',
+                900: '#14532d',
+              }
+            },
+            animation: {
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            }
+          }
+        }
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar { width: 8px; height: 8px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+      .dark ::-webkit-scrollbar-thumb { background: #475569; }
+      ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+      .dark ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+
+      /* Markdown Styles – Light Mode */
+      .markdown-body h1 { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; margin-top: 2rem; color: #15803d; }
+      .markdown-body h2 { font-size: 1.6rem; font-weight: 600; margin-bottom: 0.75rem; margin-top: 1.5rem; color: #1e293b; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem; }
+      .markdown-body h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; margin-top: 1.25rem; color: #475569; }
+      .markdown-body p { margin-bottom: 1rem; line-height: 1.7; color: #334155; }
+      .markdown-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; color: #334155; }
+      .markdown-body ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1rem; color: #334155; }
+      .markdown-body li { margin-bottom: 0.4rem; }
+      .markdown-body code { background-color: #f1f5f9; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-family: monospace; color: #15803d; }
+      .markdown-body pre { background-color: #f1f5f9; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 1rem; border: 1px solid #e2e8f0; }
+      .markdown-body pre code { background-color: transparent; padding: 0; color: #1e293b; }
+      .markdown-body blockquote { border-left: 4px solid #22c55e; padding-left: 1rem; font-style: italic; color: #64748b; margin-bottom: 1rem; }
+      .markdown-body strong { color: #0f172a; font-weight: 700; }
+      .markdown-body table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
+      .markdown-body th { background: #f0fdf4; font-weight: 600; padding: 0.5rem 0.75rem; text-align: left; border: 1px solid #d1fae5; color: #15803d; }
+      .markdown-body td { padding: 0.5rem 0.75rem; border: 1px solid #e2e8f0; color: #334155; }
+      .markdown-body tr:nth-child(even) td { background: #f8fafc; }
+
+      /* Markdown Styles – Dark Mode */
+      html.dark .markdown-body h1 { color: #4ade80; }
+      html.dark .markdown-body h2 { color: #e2e8f0; border-bottom-color: #334155; }
+      html.dark .markdown-body h3 { color: #94a3b8; }
+      html.dark .markdown-body p { color: #cbd5e1; }
+      html.dark .markdown-body ul, html.dark .markdown-body ol { color: #cbd5e1; }
+      html.dark .markdown-body code { background-color: #1e293b; color: #4ade80; }
+      html.dark .markdown-body pre { background-color: #1e293b; border-color: #334155; }
+      html.dark .markdown-body pre code { color: #e2e8f0; }
+      html.dark .markdown-body blockquote { border-left-color: #4ade80; color: #94a3b8; }
+      html.dark .markdown-body strong { color: #f1f5f9; }
+      html.dark .markdown-body th { background: #052e16; color: #4ade80; border-color: #166534; }
+      html.dark .markdown-body td { border-color: #334155; color: #cbd5e1; }
+      html.dark .markdown-body tr:nth-child(even) td { background: #1e293b; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "react-markdown": "https://aistudiocdn.com/react-markdown@^10.1.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-50 transition-colors duration-300">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
